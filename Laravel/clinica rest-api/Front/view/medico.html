@@ -1,0 +1,97 @@
+<div ng-controller="medicoCtrl">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-4">
+                    <input class="btn btn-default" type="button" value="Novo" ng-click="novoMedico()">
+                </div>
+                <div class="col-md-4">
+                    <h3 class="titulo">Médicos</h3>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <table class="table table-hover" ng-if="medicos">
+                <tr>
+                    <th>ID</th>
+                    <th>NOME MEDICO</th>
+                    <th>SEXO</th>
+                    <th>CRM</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="medico in medicos" id="{{medico.id}}">
+                    <td ng-click="exibirMedico(medico.id)" data-toggle="tooltip" data-placement="top" title="Click para editar">{{medico.id}}</td>
+                    <td ng-click="exibirMedico(medico.id)" data-toggle="tooltip" data-placement="top" title="Click para editar">{{medico.nome}}</td>
+                    <td ng-click="exibirMedico(medico.id)" data-toggle="tooltip" data-placement="top" title="Click para editar">{{medico.sexo | uppercase}}</td>
+                    <td ng-click="exibirMedico(medico.id)" data-toggle="tooltip" data-placement="top" title="Click para editar">{{medico.crm}}</td>
+                    <td><a href="#" ng-click="apagarMedico(medico.id)" alt="Apagar"><span class="glyphicon glyphicon-trash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Apagar"></span></a></td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="medicoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Médico</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" class="form-control" id="nome" placeholder="nome" ng-model="medico.nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="crm">CRM</label>
+                            <input type="text" class="form-control" id="crm" placeholder="crm" ng-model="medico.crm">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="text" class="form-control" id="telefone" ng-model="medico.telefone">
+                        </div>
+                        <div class="form-group">
+                            <label for="sexo">Sexo</label>
+                            <div class="radio">
+                                <label>
+                                <input type="radio" name="sexo" id="sexoM" value="m" ng-model="medico.sexo">
+                                    Masculino
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                <input type="radio" name="sexo" id="sexoF" value="f" ng-model="medico.sexo">
+                                    Feminino
+                                </label>
+                            </div>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" ng-model="medico.ativo">Ativo
+                        </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-click="salvar(medico)"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $('#medicoModal').on('shown.bs.modal', function() {
+        $('#nome').focus();
+    });
+</script>

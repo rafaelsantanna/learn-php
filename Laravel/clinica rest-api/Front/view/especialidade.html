@@ -1,0 +1,73 @@
+<div ng-controller="especialidadeCtrl">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-4">
+                    <input class="btn btn-default" type="button" value="Novo" ng-click="novoEspecialidade()">
+                </div>
+                <div class="col-md-4">
+                    <h3 class="titulo">Especialidades</h3>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <table class="table table-hover" ng-if="especialidades">
+                <tr>
+                    <th>ID</th>
+                    <th>DESCRIÇÃO</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="especialidade in especialidades" id="{{especialidade.id}}">
+                    <td ng-click="exibirEspecialidade(especialidade.id)" data-toggle="tooltip" data-placement="top" title="Click para editar">{{especialidade.id}}</td>
+                    <td ng-click="exibirEspecialidade(especialidade.id)" data-toggle="tooltip" data-placement="top" title="Click para editar">{{especialidade.descricao_especialidade}}</td>
+                    <td><a href="#" ng-click="apagarespecialidade(especialidade.id)" alt="Apagar"><span class="glyphicon glyphicon-trash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Apagar"></span></a></td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="especialidadeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Especialidade</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="descricao">Descrição</label>
+                            <input type="text" class="form-control" id="descricao" placeholder="descrição" ng-model="especialidade.descricao_especialidade">
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                            <input type="checkbox" ng-model="especialidade.ativo">Ativo
+                        </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-click="salvar(especialidade)"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<script>
+    $('#especialidadeModal').on('shown.bs.modal', function() {
+        $('#descricao').focus();
+    });
+</script>

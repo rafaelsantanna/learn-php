@@ -1,0 +1,91 @@
+
+/*
+Text Domain:
+Theme Name: Themetest
+Theme URI: http://www.themetest.com.br
+Author: Rafael da Silva de Sant' Anna
+Author URI: www.meusite.com
+Description: Tema criado no curso de desenvolvimento de temas para wordpress com Bootstrap
+Version: 1.0
+License: Comercial
+License URI:
+Tags:
+
+*/
+
+/* geral */
+
+body{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: #555;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6{
+    margin-top: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial;
+    font-weight: normal;
+    color: #333;
+}
+
+
+/* Nome e descrição do Blog */
+.blog-header{
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.blog-title{
+    margin-top: 30px;
+    margin-bottom: 0;
+    font-size: 50px;
+}
+.blog-desc{
+    font-size: 20px;
+    color: #999;
+}
+
+/* main*/
+.main{
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+
+/* sidebar */
+.sidebar{
+    padding: 15px;
+    margin: 0 -15px -15px;
+}
+
+/* paginação */
+.pager > li > a{
+    padding: 10px 20px;
+    width: 140px;
+    border-radius: 30px;
+}
+
+/* Postagens do Blog */
+
+.post{
+    margin-bottom: 60px;
+}
+.post-title{
+    margin-top: 5px;
+    font-size: 40px;
+}
+.meta{
+    margin-bottom: 20px;
+    color: #999;
+}
+
+/* rodapé */
+.footer{
+    padding: 40px 0;
+    color: #999;
+    background-color: #f9f9f9;
+    border-top: 1px solid #e5e5e5;
+}﻿
